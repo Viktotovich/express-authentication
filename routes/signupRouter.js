@@ -6,6 +6,6 @@ const {
 } = require("../controllers/signupController");
 
 signupRouter.get("/", getSignUpPage);
-signupRouter.post("/sign-up", postSignUp);
+signupRouter.post("/", postSignUp);
 
 module.exports = signupRouter;

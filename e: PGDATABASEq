@@ -1,0 +1,7 @@
+                                         List of relations
+ Schema |     Name     |   Type   | Owner | Persistence | Access method |    Size    | Description 
+--------+--------------+----------+-------+-------------+---------------+------------+-------------
+ public | users        | table    | vova  | permanent   | heap          | 8192 bytes | 
+ public | users_id_seq | sequence | vova  | permanent   |               | 8192 bytes | 
+(2 rows)
+
