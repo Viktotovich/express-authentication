@@ -6,7 +6,28 @@
     <title></title>
   </head>
   <body>
-    <h1>Auth test</h1>
+    <%if (locals.user) { %>
+    <h1>WELCOME BACK <%=user.username%></h1>
+    <a href="/log-out">LOG OUT</a>
+    <%} else { %>
+    <h1>Please log in</h1>
+    <form action="/log-in" method="POST">
+      <div class="u-name">
+        <label for="username">Username</label>
+        <input
+          type="text"
+          id="username"
+          name="username"
+          placeholder="username"
+        />
+      </div>
+      <div class="p-container">
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" />
+      </div>
+      <button>Log In</button>
+    </form>
     <a href="/sign-up">Sign up</a>
+    <% }%>
   </body>
 </html>
