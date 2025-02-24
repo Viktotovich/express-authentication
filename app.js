@@ -4,7 +4,7 @@ const express = require("express");
 const session = require("express-session");
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
-const crypto = require("crypto");
+const bcrypt = require("bcryptjs");
 
 //ROUTES
 const signupRouter = require("./routes/signupRouter");
@@ -30,9 +30,11 @@ passport.use(
         return done(null, false, { message: "Incorrect username" });
       }
 
-      if (user.password !== password) {
-        return done(null, false, { message: "Incorrect password" });
+      const match = await bcrypt.compare(password, user.password);
+      if (!match) {
+        return done(null, false, { message: "Incorrect Password" });
       }
+
       return done(null, user);
     } catch (err) {
       return done(err);
